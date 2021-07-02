@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.me.MeFragment">
+
+    <!--主框架-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <!--头像及信息-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout_userinfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/me_image_user_icon"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_margin="10dp"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_launcher_background" />
+
+            <TextView
+                android:id="@+id/me_txt_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="账号"
+                android:textColor="#000"
+                android:textSize="25sp"
+                android:layout_marginStart="10dp"
+                app:layout_constraintStart_toEndOf="@+id/me_image_user_icon"
+                app:layout_constraintTop_toTopOf="@+id/me_image_user_icon" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="余额:"
+                android:textColor="#000"
+                android:textSize="25sp"
+                app:layout_constraintStart_toStartOf="@+id/me_txt_username"
+                app:layout_constraintTop_toBottomOf="@+id/me_txt_username" />
+
+            <TextView
+                android:id="@+id/me_txt_balance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1000.00"
+                android:textColor="#000"
+                android:textSize="25sp"
+                app:layout_constraintStart_toEndOf="@+id/textView2"
+                app:layout_constraintTop_toTopOf="@+id/textView2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="长按进入修改信息"
+                android:textSize="15sp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="@+id/textView2"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--操作-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            
+            <!--订单-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                >
+
+                <TextView
+                    android:id="@+id/order_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="我的订单"
+                    android:textSize="20sp"
+                    android:textColor="#000"
+                    />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    />
+
+                <TextView
+                    android:id="@+id/me_txt_order_more"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="更多订单  >"
+                    android:textSize="20sp"
+                    android:textColor="#000"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <Button
+                    android:id="@+id/me_btn_dating"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:layout_margin="5dp"
+                    android:text="已预约"
+                    />
+
+                <Button
+                    android:id="@+id/me_btn_loading"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:layout_margin="5dp"
+                    android:text="进行中"
+                    />
+
+                <Button
+                    android:id="@+id/me_btn_finish"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:layout_margin="5dp"
+                    android:text="已结束"
+                    />
+
+            </LinearLayout>
+            <!--订单结束-->
+
+            <!--充值-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                >
+
+                <TextView
+                    android:id="@+id/me_txt_recharge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="充值"
+                    android:textSize="20sp"
+                    android:textColor="#000"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+
+                    <Button
+                        android:id="@+id/me_btn_balance_add500"
+                        android:layout_width="0dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="1"
+                        android:text="500元"
+                        android:textColor="#000"
+                        android:layout_margin="5dp"
+                        />
+
+                    <Button
+                        android:id="@+id/me_btn_balance_add100"
+                        android:layout_width="0dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="1"
+                        android:text="100元"
+                        android:textColor="#000"
+                        android:layout_margin="5dp"
+                        />
+
+                    <Button
+                        android:id="@+id/me_btn_balance_add50"
+                        android:layout_width="0dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="1"
+                        android:text="50元"
+                        android:textColor="#000"
+                        android:layout_margin="5dp"
+                        />
+
+                    <Button
+                        android:id="@+id/me_btn_balance_add20"
+                        android:layout_width="0dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="1"
+                        android:text="20元"
+                        android:textColor="#000"
+                        android:layout_margin="5dp"
+                        />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <!--充值结束-->
+
+        </LinearLayout>
+        <!--操作结束-->
+
+        <!--关于我们-->
+        <TextView
+            android:id="@+id/me_txt_about_our"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="关于我们"
+            android:textSize="20sp"
+            android:textColor="#000"
+            />
+
+        <!--退出登录-->
+        <Button
+            android:id="@+id/me_btn_exit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/faker_red"
+            android:layout_marginTop="200dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:text="退出登录"
+            android:textColor="#000"
+            />
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!--车辆图片-->
+    <ImageView
+        android:id="@+id/image_car"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_margin="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_launcher_background" />
+
+    <!--车牌信息-->
+    <TextView
+        android:id="@+id/txt_car_plate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="车牌信息"
+        android:textColor="#000"
+        android:textSize="25sp"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintStart_toEndOf="@+id/image_car"
+        app:layout_constraintTop_toTopOf="@+id/image_car" />
+
+    <!--车辆品牌-->
+    <TextView
+        android:id="@+id/txt_car_brand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="车辆品牌"
+        android:textSize="20sp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="@+id/txt_car_plate"
+        app:layout_constraintTop_toBottomOf="@+id/txt_car_plate" />
+
+    <!--车辆类型-->
+    <TextView
+        android:id="@+id/txt_car_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="车辆类型"
+        android:textSize="20sp"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintStart_toEndOf="@+id/txt_car_brand"
+        app:layout_constraintTop_toTopOf="@+id/txt_car_brand" />
+
+    <!--车辆单价-->
+    <TextView
+        android:id="@+id/txt_car_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10.00"
+        android:textSize="25sp"
+        android:textColor="#f00"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="@+id/txt_car_brand"
+        app:layout_constraintTop_toBottomOf="@+id/txt_car_brand" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="元/每小时"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_car_price"
+        app:layout_constraintStart_toEndOf="@+id/txt_car_price" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
