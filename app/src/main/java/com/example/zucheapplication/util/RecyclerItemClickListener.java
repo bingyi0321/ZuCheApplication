@@ -11,7 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 /**
  * 自定义item点击事件
  * email 1005196988@qq.com
- * Created by bingyi on 2021/6/3/0003 21:01.
+ *
+ * @author bingyi
+ * @date 2021/6/3/0003 21:01
  */
 public class RecyclerItemClickListener implements RecyclerView.OnItemTouchListener {
     GestureDetector mGestureDetector;

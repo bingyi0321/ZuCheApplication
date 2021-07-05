@@ -1,15 +1,26 @@
 package com.example.zucheapplication.activity;
 
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.example.zucheapplication.R;
 import com.example.zucheapplication.entity.car.Car;
+import com.example.zucheapplication.entity.car.CarInfoItemAdapter;
+import com.example.zucheapplication.util.Connect;
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import static android.content.ContentValues.TAG;
 
@@ -23,6 +34,8 @@ public class SearchActivity extends AppCompatActivity {
     private EditText editSearchPlate;
     private EditText editSearchBrand;
     private Button btnSearchGet;
+    private RecyclerView recyclerView;
+    private List<Car> carList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +44,8 @@ public class SearchActivity extends AppCompatActivity {
         editSearchPlate = findViewById(R.id.edit_search_plate);
         editSearchBrand = findViewById(R.id.edit_search_brand);
         btnSearchGet = findViewById(R.id.btn_search_get);
+        recyclerView = findViewById(R.id.recyclerView_car_list);
+
 
         searchInfo();
     }
@@ -57,9 +72,9 @@ public class SearchActivity extends AppCompatActivity {
             //TODO 接口查询
             //Connect.getData(Connect.URL + "/user/login", json);
         });
-
-
     }
+
+
 
 
     @Override

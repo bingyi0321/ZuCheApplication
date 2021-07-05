@@ -1,9 +1,11 @@
 package com.example.zucheapplication.activity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.zucheapplication.R;
@@ -25,8 +27,8 @@ import androidx.navigation.ui.NavigationUI;
  */
 public class MainActivity extends AppCompatActivity {
 
-
     private ActivityMainBinding binding;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,8 +99,8 @@ public class MainActivity extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
-    @Override
+    /*@Override
     protected void onDestroy() {
         super.onDestroy();
-    }
+    }*/
 }

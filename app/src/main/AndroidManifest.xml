@@ -19,7 +19,10 @@
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ZuCheApplication">
+        android:theme="@style/Theme.ZuCheApplication"
+        android:name=".util.MyApplication"
+        >
+
 
         <activity android:name=".activity.CameraActivity" />
         <activity android:name=".activity.LicenseActivity" />

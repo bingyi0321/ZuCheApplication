@@ -28,7 +28,7 @@ public class Car {
     /**
      * 单价
      */
-    private float price;
+    private double price;
     /**
      * 图片
      */
@@ -45,7 +45,7 @@ public class Car {
      * @author bingyi
      * @time 2021/6/28/0028 15:27
      */
-    public Car(int car_id, String car_plate, String car_brand, String car_type, float price,
+    public Car(int car_id, String car_plate, String car_brand, String car_type, double price,
                String car_image, int status) {
         this.car_id = car_id;
         this.car_plate = car_plate;
@@ -91,7 +91,7 @@ public class Car {
         this.car_type = car_type;
     }
 
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
 

@@ -30,6 +30,7 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
+            android:text="123"
             />
 
     </LinearLayout>
@@ -58,6 +59,7 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPassword"
+            android:text="123456"
             />
 
     </LinearLayout>

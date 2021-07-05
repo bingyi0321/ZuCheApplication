@@ -7,8 +7,13 @@ import android.net.Uri;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
+
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import com.example.zucheapplication.entity.car.Car;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -38,7 +43,6 @@ import static android.content.ContentValues.TAG;
  * @ClassName Connect
  * @Description 连接网络及后台
  * email 1005196988@qq.com
- * Created by bingyi
  * on 2021/6/29/0029 10:59
  */
 public class Connect {
@@ -54,7 +58,7 @@ public class Connect {
     public static String PATH;
 
     /**
-     * 请求头d
+     * 请求头
      */
     public static String HEADER;
 
@@ -62,6 +66,11 @@ public class Connect {
      * 图片数组
      */
     public static List<Uri> image = new ArrayList<>();
+
+    /**
+     * 车辆信息
+     */
+    public static List<Car> cars = new ArrayList<>();
 
     /**
      * 线程池
@@ -84,10 +93,12 @@ public class Connect {
 
     static {
         //TODO 需要转换为json文件
-        int size = 5;
+        /*int size = 5;
         for (int i = 1; i < size; i++) {
             image.add(Uri.parse("https://my-link.oss-cn-shenzhen.aliyuncs.com/MyAndroidImage/home" + i + ".jpg"));
-        }
+        }*/
+
+
     }
 
     /**
@@ -96,12 +107,12 @@ public class Connect {
      * @description 连接后台获取数据
      * @author bingyi
      * @time 2021/7/1/0001 09:33
+     * String path="http://192.168.43.227:8080/demo_android/login.action?username="+name+"&password="+password;
      */
-    public static void getData(String url, String json) {
+    public static void getData(String url) {
         executor.execute(() -> {
-            RequestBody requestBody = RequestBody.create(JSON, json);
             final Request request = new Request.Builder()
-                    .addHeader("header", HEADER).url(url).post(requestBody).build();
+                    .addHeader("Authorization", HEADER).url(url).build();
             client.newCall(request).enqueue(new Callback() {
                 @Override
                 public void onFailure(@NotNull Call call, @NotNull IOException e) {
@@ -111,10 +122,12 @@ public class Connect {
                 public void onResponse(@NotNull Call call, @NotNull Response response)
                         throws IOException {
                     RESULT = Objects.requireNonNull(response.body()).string();
+                    Log.e(TAG, "RESULT:" + RESULT);
                 }
             });
         });
     }
+
 
     /**
      * 存放结果
@@ -157,7 +170,7 @@ public class Connect {
         executor.execute(() -> {
             RequestBody requestBody = RequestBody.create(JSON, json);
             final Request request = new Request.Builder()
-                    .addHeader("header", HEADER).url(url).post(requestBody).build();
+                    .addHeader("Authorization", HEADER).url(url).post(requestBody).build();
             client.newCall(request).enqueue(new Callback() {
                 @Override
                 public void onFailure(@NotNull Call call, @NotNull IOException e) {
@@ -167,6 +180,8 @@ public class Connect {
                 public void onResponse(@NotNull Call call, @NotNull Response response)
                         throws IOException {
                     RESULT = Objects.requireNonNull(response.body()).string();
+                    //TODO 测试位完成
+                    Log.e(TAG, "RESULT:" + RESULT);
                 }
             });
         });

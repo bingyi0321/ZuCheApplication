@@ -2,17 +2,20 @@ package com.example.zucheapplication.util;
 
 
 import android.content.Context;
+import android.net.Uri;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.squareup.picasso.Picasso;
 import com.youth.banner.loader.ImageLoader;
 
 /**
  * 图片加载
  * email 1005196988@qq.com
- * Created by bingyi on 2021/5/27/0027 21:30.
+ * @author bingyi
+ * @date 2021/5/27/0027 21:30
  */
-public class GlideImageLoader extends ImageLoader {
+public  class  GlideImageLoader extends ImageLoader {
     @Override
     public void displayImage(Context context, Object path, ImageView imageView) {
         /**
@@ -27,7 +30,7 @@ public class GlideImageLoader extends ImageLoader {
         Glide.with(context).load(path).into(imageView);
 
         //Picasso 加载图片简单用法
-        //Picasso.with(context).load(path).into(imageView);
+        Picasso.with(context).load((Uri) path).into(imageView);
 
         //用fresco加载图片简单用法，记得要写下面的createImageView方法
         /*Uri uri = Uri.parse((String) path);

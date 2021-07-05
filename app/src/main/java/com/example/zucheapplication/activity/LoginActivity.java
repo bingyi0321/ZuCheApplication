@@ -11,6 +11,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.example.zucheapplication.R;
 import com.example.zucheapplication.entity.user.User;
 import com.example.zucheapplication.util.Connect;
+import com.example.zucheapplication.util.MyApplication;
 import com.google.gson.Gson;
 
 import java.util.Objects;
@@ -43,6 +44,7 @@ public class LoginActivity extends AppCompatActivity {
     private AppCompatEditText txtPassword;
 
     private Connect connect;
+    private MyApplication myApplication;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,7 +77,7 @@ public class LoginActivity extends AppCompatActivity {
                 Gson gson = new Gson();
                 String json = gson.toJson(user);
                 Connect.postDataNoHead(Connect.URL + "/user/login", json);
-                SystemClock.sleep(500);
+                SystemClock.sleep(1000);
                 Connect.HEADER = JSONObject.parseObject(Connect.RESULT).getJSONObject("data").getString("token");
                 Log.e("Login", "token: " + Connect.HEADER);
 

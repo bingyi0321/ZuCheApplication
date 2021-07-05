@@ -18,8 +18,6 @@ import com.example.zucheapplication.activity.OrderActivity;
 import com.example.zucheapplication.activity.UserInfoActivity;
 import com.example.zucheapplication.util.Connect;
 
-import java.util.Objects;
-
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
@@ -88,6 +86,14 @@ public class MeFragment extends Fragment {
      */
     private ConstraintLayout constraintLayoutUserinfo;
 
+    /**
+     * 类型参数
+     */
+    public static final int DATING = 0x01;
+    public static final int LOADING = 0x02;
+    public static final int FINISH = 0x03;
+    public static final int MORE = 0x04;
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -124,27 +130,45 @@ public class MeFragment extends Fragment {
                 //已预约
                 case R.id.me_btn_dating:
                     Intent toOrderDating = new Intent(getContext(), OrderActivity.class);
+                    toOrderDating.putExtra("Type", DATING);
                     startActivity(toOrderDating);
-                    Log.e("toOrderDating", "click: ");
                     break;
 
-                    //进行中
+                //进行中
                 case R.id.me_btn_loading:
-                    Intent toOrderLoading = new Intent(getContext(),OrderActivity.class);
+                    Intent toOrderLoading = new Intent(getContext(), OrderActivity.class);
                     startActivity(toOrderLoading);
-                    Log.e("toOrderLoading", "click: " );
+                    toOrderLoading.putExtra("Type", LOADING);
                     break;
 
-                    //已结束
+                //已结束
                 case R.id.me_btn_finish:
-                    Intent toOrderFinish = new Intent(getContext(),OrderActivity.class);
+                    Intent toOrderFinish = new Intent(getContext(), OrderActivity.class);
                     startActivity(toOrderFinish);
-                    Log.e("toOrderFinish", "click: " );
+                    toOrderFinish.putExtra("Type", FINISH);
                     break;
 
+                //更多订单
                 case R.id.me_txt_order_more:
-                    Intent toOrderMore = new Intent(getContext(),OrderActivity.class);
+                    Intent toOrderMore = new Intent(getContext(), OrderActivity.class);
+                    toOrderMore.putExtra("Type", MORE);
                     startActivity(toOrderMore);
+                    break;
+
+                case R.id.me_btn_balance_add500:
+                    Log.e("Me", "click: add500");
+                    break;
+
+                case R.id.me_btn_balance_add100:
+                    Log.e("Me", "click: add100");
+                    break;
+
+                case R.id.me_btn_balance_add50:
+                    Log.e("Me", "click: add50");
+                    break;
+
+                case R.id.me_btn_balance_add20:
+                    Log.e("Me", "click: add20");
                     break;
 
                 //关于我们
@@ -152,7 +176,6 @@ public class MeFragment extends Fragment {
                     AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                     builder.setTitle("提示：")
                             .setMessage("联系我们？爱租不租！")
-                            //点击对话框以外的区域是否让对话框消失
                             .setCancelable(true)
                             .show();
                     break;
